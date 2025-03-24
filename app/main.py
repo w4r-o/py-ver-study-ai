@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 from .routers import auth, files, tests
 from .config import settings
@@ -29,4 +30,8 @@ app.include_router(tests.router, prefix="/api/tests", tags=["Tests"])
 
 @app.get("/")
 async def root():
-    return {"message": "Welcome to StudyAI API"} 
+    return JSONResponse({"message": "Welcome to StudyAI API"})
+
+@app.get("/api/test")
+async def test():
+    return {"message": "API is working"} 

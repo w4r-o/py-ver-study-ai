@@ -38,4 +38,7 @@ wheels/
 Thumbs.db
 
 # Database
-*.db 
+*.db
+
+# Vercel
+.vercel 
